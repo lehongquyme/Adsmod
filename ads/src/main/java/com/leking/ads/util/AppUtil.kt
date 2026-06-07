@@ -1,2 +1,2 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 object AppUtil { @JvmField var BUILD_DEBUG = true; @JvmField var currentTotalRevenue001Ad = 0f }

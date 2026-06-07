@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 
 import androidx.multidex.MultiDexApplication
 

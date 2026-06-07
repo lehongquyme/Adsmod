@@ -1,12 +1,12 @@
-package com.lvt.ads.event
+package com.leking.ads.event
 
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import com.google.android.gms.ads.AdValue
 import com.google.firebase.analytics.FirebaseAnalytics
-import com.lvt.ads.util.AppUtil
-import com.lvt.ads.util.SharePreferenceUtils
+import com.leking.ads.util.AppUtil
+import com.leking.ads.util.SharePreferenceUtils
 
 object FirebaseUtil {
     private const val TAG = "FirebaseUtil"

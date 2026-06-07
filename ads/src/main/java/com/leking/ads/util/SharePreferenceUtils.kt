@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 import android.content.Context
 object SharePreferenceUtils {
     private const val PREF_NAME = "ad_pref"

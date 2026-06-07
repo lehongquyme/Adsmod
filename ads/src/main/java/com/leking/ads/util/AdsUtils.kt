@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.nativead.NativeAd
 object AdsUtils {

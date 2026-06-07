@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 
 import android.app.Activity
 import android.app.Application
@@ -19,12 +19,12 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
-import com.lvt.ads.callback.AdCallback
-import com.lvt.ads.dialog.LoadingAdsDialog
-import com.lvt.ads.dialog.ResumeLoadingDialog
-import com.lvt.ads.event.AdType
-import com.lvt.ads.event.AdmobEvent
-import com.lvt.ads.event.FirebaseUtil
+import com.leking.ads.callback.AdCallback
+import com.leking.ads.dialog.LoadingAdsDialog
+import com.leking.ads.dialog.ResumeLoadingDialog
+import com.leking.ads.event.AdType
+import com.leking.ads.event.AdmobEvent
+import com.leking.ads.event.FirebaseUtil
 import java.util.Date
 
 class AppOpenManager private constructor() : Application.ActivityLifecycleCallbacks, DefaultLifecycleObserver {

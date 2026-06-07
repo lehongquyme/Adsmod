@@ -1,4 +1,4 @@
-package com.lvt.ads.callback
+package com.leking.ads.callback
 import com.google.android.gms.ads.rewarded.RewardItem
 import com.google.android.gms.ads.rewarded.RewardedAd
 open class RewardCallback {

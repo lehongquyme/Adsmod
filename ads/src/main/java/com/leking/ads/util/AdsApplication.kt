@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 
 import android.app.Application
 import android.util.Log

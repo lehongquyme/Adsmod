@@ -1,4 +1,4 @@
-package com.lvt.ads.callback
+package com.leking.ads.callback
 import com.google.android.gms.ads.LoadAdError
 open class BannerCallBack {
     open fun onEarnRevenue(revenue: Double) {}

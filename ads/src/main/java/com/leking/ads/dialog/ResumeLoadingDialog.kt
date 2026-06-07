@@ -1,9 +1,9 @@
-package com.lvt.ads.dialog
+package com.leking.ads.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
-import com.lvt.ads.R
+import com.leking.ads.R
 
 class ResumeLoadingDialog(context: Context) : Dialog(context, R.style.AdsDialogTheme) {
     override fun onCreate(savedInstanceState: Bundle?) {

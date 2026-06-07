@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 
 import android.content.Context
 import android.view.View
@@ -11,7 +11,7 @@ import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.gms.ads.nativead.MediaView
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdView
-import com.lvt.ads.R
+import com.leking.ads.R
 
 class Admob private constructor() {
     companion object {

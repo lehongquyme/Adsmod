@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 
 import android.app.Activity
 import android.content.Context
@@ -11,9 +11,9 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.rewarded.RewardedAd
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback
-import com.lvt.ads.callback.RewardCallback
-import com.lvt.ads.event.AdType
-import com.lvt.ads.event.FirebaseUtil
+import com.leking.ads.callback.RewardCallback
+import com.leking.ads.event.AdType
+import com.leking.ads.event.FirebaseUtil
 
 /**
  * Manager RewardedAd Kotlin.

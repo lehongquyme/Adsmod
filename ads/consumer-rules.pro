@@ -1,1 +1,1 @@
--keep class com.lvt.ads.** { *; }
+-keep class com.leking.ads.** { *; }

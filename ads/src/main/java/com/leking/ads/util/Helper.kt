@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 import android.content.Context
 object Helper {
     private const val FILE_SETTING = "setting.pref"

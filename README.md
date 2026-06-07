@@ -1,6 +1,6 @@
 # Kotlin Admob Kit
 
-Android Library Kotlin tương tự source Java `com.lvt.ads`.
+Android Library Kotlin tương tự source Java `com.leking.ads`.
 
 ## Import local module
 
@@ -84,9 +84,9 @@ AppOpenManager.getInstance().loadOpenAppAdSplash(
 
 ## Ghi chú
 
-- Package giữ là `com.lvt.ads` để bạn dễ thay thế code cũ.
+- Package giữ là `com.leking.ads` để bạn dễ thay thế code cũ.
 - Facebook/Appsflyer được để dạng optional/stub để project không bắt buộc cấu hình SDK ngoài.
-- Nếu muốn đổi package để tránh trùng thư viện cũ, replace `com.lvt.ads` thành package riêng của bạn.
+- Nếu muốn đổi package để tránh trùng thư viện cũ, replace `com.leking.ads` thành package riêng của bạn.
 
 ## Resource native ads đã kèm sẵn
 

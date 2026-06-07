@@ -1,11 +1,11 @@
-package com.lvt.ads.dialog
+package com.leking.ads.dialog
 
 import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.widget.FrameLayout
 import com.google.android.gms.ads.nativead.NativeAdView
-import com.lvt.ads.R
+import com.leking.ads.R
 
 class NativeAdsDialog(context: Context) : Dialog(context, R.style.AdsDialogTheme) {
     override fun onCreate(savedInstanceState: Bundle?) {

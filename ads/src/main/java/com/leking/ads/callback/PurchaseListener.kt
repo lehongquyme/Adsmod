@@ -1,4 +1,4 @@
-package com.lvt.ads.callback
+package com.leking.ads.callback
 interface PurchaseListener {
     fun onProductPurchased(productId: String, transactionDetails: String)
     fun displayErrorMessage(errorMsg: String)

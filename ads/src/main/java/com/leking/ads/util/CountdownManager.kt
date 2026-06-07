@@ -1,4 +1,4 @@
-package com.lvt.ads.util
+package com.leking.ads.util
 import android.os.Handler
 import android.os.Looper
 class CountdownManager(private var duration: Long, private val listener: CountdownListener?) {
