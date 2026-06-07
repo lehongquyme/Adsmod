@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "com.leking.ads-release-40:/xml/gma_ad_services_config.xml",
+        "source": "com.leking.ads-jetified-play-services-ads-lite-23.2.0-27:/xml/gma_ad_services_config.xml"
+    },
+    {
+        "merged": "com.leking.ads-release-40:/xml/image_share_filepaths.xml",
+        "source": "com.leking.ads-browser-1.4.0-11:/xml/image_share_filepaths.xml"
+    },
+    {
+        "merged": "com.leking.ads-release-40:/xml/ga_ad_services_config.xml",
+        "source": "com.leking.ads-jetified-play-services-measurement-api-22.0.2-17:/xml/ga_ad_services_config.xml"
+    }
+]

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="colorAccent">#00FF00</color>
+    <color name="colorAds">#068ABF</color>
+    <color name="colorGrayAds">#F8F8F8</color>
+    <color name="colorPrimary">#00FF00</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorWhite">#FFFFFFFF</color>
+    <color name="color_app">#068ABF</color>
+    <color name="colorindicator">#068ABF</color>
+    <color name="distance">#ECECEC</color>
+    <color name="gntAdGreen">#3A6728</color>
+    <color name="gntBlack">#000000</color>
+    <color name="gntBlue">#4285F4</color>
+    <color name="gntGray">#808080</color>
+    <color name="gntGreen">#00FF00</color>
+    <color name="gntOutline">#E0E0E0</color>
+    <color name="gntRed">#FF0000</color>
+    <color name="gntTestBackgroundColor">#00F4F4F4</color>
+    <color name="gntTestBackgroundColor2">#00A3A3A3</color>
+    <color name="gntWhite">#FFFFFF</color>
+    <color name="lightTransparent">#16000000</color>
+    <color name="native_ad_bg_color">#068ABF</color>
+    <color name="native_ad_text_color">#FFFFFF</color>
+    <color name="native_ad_text_color_banner">#FFFFFF</color>
+    <color name="native_bg">#FAFAFA</color>
+    <color name="native_bg_dialog_color">#FFFFFF</color>
+    <color name="native_bg_hide">#FFFFFF</color>
+    <color name="native_bg_stoke">#C6C6C6</color>
+    <color name="native_bg_stroke">#FFFFFF</color>
+    <color name="native_btn_bg">#068ABF</color>
+    <color name="native_btn_text_color">#FFFFFF</color>
+    <color name="native_btn_text_dialog_color">#FFFFFF</color>
+    <color name="native_collap_bg_iconDown">#73DCDCDC</color>
+    <color name="native_collap_btn_bg">#068ABF</color>
+    <color name="native_text_body">#000000</color>
+    <color name="native_text_dialog_color">#000000</color>
+    <color name="native_text_title">#000000</color>
+    <color name="stockeCard">#5E58595A</color>
+    <color name="textColor">#FF666666</color>
+    <color name="text_exit">#2152FF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="whiteBlur">#BF9C9C9C</color>
+    <dimen name="height_full_ads">300dp</dimen>
+    <dimen name="height_native_ads">320dp</dimen>
+    <dimen name="height_native_small_ads">130dp</dimen>
+    <string name="ads_test_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="ads_test_banner_collap">ca-app-pub-3940256099942544/2014213617</string>
+    <string name="ads_test_inter">ca-app-pub-3940256099942544/1033173712</string>
+    <string name="ads_test_native">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="ads_test_native_dialog">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="ads_test_native_vid">ca-app-pub-3940256099942544/1044965511</string>
+    <string name="ads_test_resume">ca-app-pub-3940256099942544/3419835294</string>
+    <string name="ads_test_reward">ca-app-pub-3940256099942544/5224354917</string>
+    <string name="loading_ads">Loading Ads…</string>
+    <string name="well_comeback">Welcome back</string>
+    <style name="AdsAppTheme" parent="Theme.AppCompat.Light"/>
+    <style name="AdsDialogTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.Ads" parent="@style/AdsAppTheme">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:background">@drawable/ads_icon</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">15px</item>
+        <item name="android:minHeight">15px</item>
+        <item name="android:text">Ad</item>
+    </style>
+    <style name="AppTheme.Ads2" parent="@style/AdsAppTheme">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">left</item>
+        <item name="android:background">#FFCC74</item>
+        <item name="android:paddingLeft">3dp</item>
+        <item name="android:paddingRight">6dp</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minWidth">15px</item>
+        <item name="android:minHeight">15px</item>
+        <item name="android:text">Ad</item>
+    </style>
+    <style name="NoTitleDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>
