@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
 }
 
 android {
@@ -10,6 +11,11 @@ android {
     defaultConfig {
         minSdk 23
         consumerProguardFiles 'consumer-rules.pro'
+    }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
     }
 }
 
@@ -28,4 +34,17 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.1.1'
     implementation 'com.intuit.ssp:ssp-android:1.1.1'
     implementation 'androidx.cardview:cardview:1.0.0'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.github.lehongquyme'
+                artifactId = 'Adsmod'
+                version = '1.0.1'
+            }
+        }
+    }
 }
