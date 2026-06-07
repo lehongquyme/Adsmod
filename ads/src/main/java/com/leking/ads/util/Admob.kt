@@ -1183,7 +1183,6 @@ class Admob private constructor() {
 
     /* ---------------- Utils ---------------- */
 
-    val adRequest: AdRequest get() = getAdRequest()
 
     fun getAdRequest(): AdRequest = AdRequest.Builder().build()
 
