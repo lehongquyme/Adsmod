@@ -1006,15 +1006,31 @@ class Admob private constructor() {
     }
 
     fun loadNativeAd(context: Context, id: String, frameLayout: FrameLayout, layoutNative: Int) {
-        if (!canShowAds() || !isShowNative) { frameLayout.removeAllViews(); return }
+        frameLayout.visibility = View.VISIBLE
+
+        if (!canShowAds() || !isShowNative) {
+            frameLayout.visibility = View.GONE
+            frameLayout.removeAllViews()
+            return
+        }
+
         loadNativeAd(context, id, object : NativeCallback() {
             override fun onNativeAdLoaded(nativeAd: NativeAd) {
-                val adView = LayoutInflater.from(context).inflate(layoutNative, null) as NativeAdView
+                val adView = LayoutInflater.from(context)
+                    .inflate(layoutNative, frameLayout, false) as NativeAdView
+
                 frameLayout.removeAllViews()
                 frameLayout.addView(adView)
+                frameLayout.visibility = View.VISIBLE
+
                 pushAdsToViewCustom(nativeAd, adView)
             }
-            override fun onAdFailedToLoad() { frameLayout.removeAllViews() }
+
+            override fun onAdFailedToLoad() {
+                frameLayout.visibility = View.GONE
+                frameLayout.removeAllViews()
+                Log.e("Admob", "Native failed: $id")
+            }
         })
     }
 
