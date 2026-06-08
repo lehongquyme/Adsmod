@@ -1,0 +1,44 @@
+com.leking.ads-work-runtime-2.7.0-0 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/029562992611ba42634cafcdeea325ad/transformed/work-runtime-2.7.0/res
+com.leking.ads-jetified-sdp-android-1.1.1-1 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/02f7a6a595480f039985e3de5bee4e34/transformed/jetified-sdp-android-1.1.1/res
+com.leking.ads-appcompat-1.7.0-2 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/09613876bab01c5aad87ccb91a1e6299/transformed/appcompat-1.7.0/res
+com.leking.ads-jetified-firebase-common-21.0.0-3 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/11cb7a4f0ea42b2864510e6ad6facbc3/transformed/jetified-firebase-common-21.0.0/res
+com.leking.ads-jetified-lottie-6.4.1-4 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/161e21bbb091518cabc5f895743a9540/transformed/jetified-lottie-6.4.1/res
+com.leking.ads-jetified-lifecycle-viewmodel-release-5 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/1a5148d939ecf32e7bd895800e3a4a5d/transformed/jetified-lifecycle-viewmodel-release/res
+com.leking.ads-jetified-play-services-basement-18.4.0-6 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/24c682540368b997febb947244b30c71/transformed/jetified-play-services-basement-18.4.0/res
+com.leking.ads-jetified-play-services-ads-23.2.0-7 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/2fcd7570fab50c3883e412b988410531/transformed/jetified-play-services-ads-23.2.0/res
+com.leking.ads-jetified-lifecycle-viewmodel-savedstate-2.8.4-8 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/30373827d311547ed887487537005c42/transformed/jetified-lifecycle-viewmodel-savedstate-2.8.4/res
+com.leking.ads-jetified-activity-1.7.0-9 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/3f26f8e4e50d13eea0c85e824015b8b6/transformed/jetified-activity-1.7.0/res
+com.leking.ads-jetified-ads-adservices-1.0.0-beta05-10 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/3f62b46531f750fdfc56642376b477af/transformed/jetified-ads-adservices-1.0.0-beta05/res
+com.leking.ads-browser-1.4.0-11 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/42d357f5f4900858fc079bd020a53154/transformed/browser-1.4.0/res
+com.leking.ads-jetified-annotation-experimental-1.4.0-12 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/583f559bb93952fb9fa72bbb60731f65/transformed/jetified-annotation-experimental-1.4.0/res
+com.leking.ads-jetified-profileinstaller-1.3.1-13 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/620fc287fb47ab2eb39aec31e286efe7/transformed/jetified-profileinstaller-1.3.1/res
+com.leking.ads-fragment-1.5.4-14 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/66beed9cb5b9e4aa57c17be76d211ba6/transformed/fragment-1.5.4/res
+com.leking.ads-lifecycle-livedata-core-2.8.4-15 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/79eabcefeb52fdc4d0758844ec8f3867/transformed/lifecycle-livedata-core-2.8.4/res
+com.leking.ads-jetified-lifecycle-process-2.8.4-16 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/7a2b35343c77fff6a27c0bb1c66acdb9/transformed/jetified-lifecycle-process-2.8.4/res
+com.leking.ads-jetified-play-services-measurement-api-22.0.2-17 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/7f6088a9f1659fbf11b20b996488e81b/transformed/jetified-play-services-measurement-api-22.0.2/res
+com.leking.ads-cardview-1.0.0-18 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/87134be408df3c35d1ed55d6a5c9225e/transformed/cardview-1.0.0/res
+com.leking.ads-jetified-appcompat-resources-1.7.0-19 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/9977c10afabe9723c1a941108411fc6e/transformed/jetified-appcompat-resources-1.7.0/res
+com.leking.ads-jetified-lifecycle-service-2.8.4-20 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/9d02cd5e4a2113803af9f6afa6495f4a/transformed/jetified-lifecycle-service-2.8.4/res
+com.leking.ads-lifecycle-livedata-2.8.4-21 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/a0d5492a31f94619afa2e8e626a04047/transformed/lifecycle-livedata-2.8.4/res
+com.leking.ads-jetified-ssp-android-1.1.1-22 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/aa26871d4fe4c5b133f1f6c849766022/transformed/jetified-ssp-android-1.1.1/res
+com.leking.ads-core-runtime-2.2.0-23 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/ac06e847b627e818e9e8279af5234ced/transformed/core-runtime-2.2.0/res
+com.leking.ads-jetified-lifecycle-livedata-core-ktx-2.8.4-24 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/ad0b2e241e18210c320fdefaf18fb9e1/transformed/jetified-lifecycle-livedata-core-ktx-2.8.4/res
+com.leking.ads-jetified-startup-runtime-1.1.1-25 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/bc7d90b0103b39118f30bb201b96a6a0/transformed/jetified-startup-runtime-1.1.1/res
+com.leking.ads-jetified-emoji2-views-helper-1.3.0-26 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/d554bc66a0b1d18d53933f5639959700/transformed/jetified-emoji2-views-helper-1.3.0/res
+com.leking.ads-jetified-play-services-ads-lite-23.2.0-27 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/d750ac6f22f176f4770285cb8b40249e/transformed/jetified-play-services-ads-lite-23.2.0/res
+com.leking.ads-jetified-shimmer-0.5.0-28 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/db65b910a2c5ce5b832561575b640617/transformed/jetified-shimmer-0.5.0/res
+com.leking.ads-webkit-1.11.0-alpha02-29 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/e8f716eb3deb00e73881637994aef96f/transformed/webkit-1.11.0-alpha02/res
+com.leking.ads-jetified-emoji2-1.3.0-30 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/f11e632781c5582ee44241674404dcc9/transformed/jetified-emoji2-1.3.0/res
+com.leking.ads-jetified-play-services-base-18.0.0-31 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/f2761689bd17ac6879fff44870a514ad/transformed/jetified-play-services-base-18.0.0/res
+com.leking.ads-jetified-ads-adservices-java-1.0.0-beta05-32 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/f2af4d5b25bc56ebe078d83f283c5975/transformed/jetified-ads-adservices-java-1.0.0-beta05/res
+com.leking.ads-jetified-savedstate-1.2.1-33 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/f2ea85402c51c49df645f691c7acd040/transformed/jetified-savedstate-1.2.1/res
+com.leking.ads-core-1.13.1-34 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/f5e91bcdc09ba2865a80e399c0d03640/transformed/core-1.13.1/res
+com.leking.ads-jetified-core-ktx-1.13.1-35 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/f8f727f652bef0e164d182d81ae52f54/transformed/jetified-core-ktx-1.13.1/res
+com.leking.ads-jetified-lifecycle-runtime-release-36 /Users/quyle/.gradle/caches/9.0-milestone-1/transforms/fe6371f51457279e3a6244fe60c78a5d/transformed/jetified-lifecycle-runtime-release/res
+com.leking.ads-pngs-37 /Users/quyle/Downloads/kotlin-admob-kit 4/ads/build/generated/res/pngs/release
+com.leking.ads-resValues-38 /Users/quyle/Downloads/kotlin-admob-kit 4/ads/build/generated/res/resValues/release
+com.leking.ads-mergeReleaseResources-39 /Users/quyle/Downloads/kotlin-admob-kit 4/ads/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.leking.ads-mergeReleaseResources-40 /Users/quyle/Downloads/kotlin-admob-kit 4/ads/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.leking.ads-release-41 /Users/quyle/Downloads/kotlin-admob-kit 4/ads/build/intermediates/merged_res/release/mergeReleaseResources
+com.leking.ads-main-42 /Users/quyle/Downloads/kotlin-admob-kit 4/ads/src/main/res
+com.leking.ads-release-43 /Users/quyle/Downloads/kotlin-admob-kit 4/ads/src/release/res
