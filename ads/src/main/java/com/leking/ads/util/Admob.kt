@@ -1027,8 +1027,8 @@ class Admob private constructor() {
             }
 
             override fun onAdFailedToLoad() {
-                frameLayout.visibility = View.GONE
-                frameLayout.removeAllViews()
+                frameLayout.visibility = View.VISIBLE
+
                 Log.e("Admob", "Native failed: $id")
             }
         })
