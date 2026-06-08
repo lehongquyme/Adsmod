@@ -564,52 +564,74 @@ class Admob private constructor() {
     fun getmInterstitialSplash(): InterstitialAd? = mInterstitialSplash
     fun getRewardedAd(): RewardedAd? = rewardedAd
 
-    fun loadSplashInterAds(context: Context, id: String, timeOut: Long, timeDelay: Long, adListener: InterCallback?) {
+    fun loadSplashInterAds(
+        context: Context,
+        id: String,
+        timeOut: Long,
+        timeDelay: Long,
+        adListener: InterCallback?
+    ) {
         isTimeDelay = false
         isTimeout = false
+
         if (!isNetworkConnected()) {
-            Handler(Looper.getMainLooper()).postDelayed({ adListener?.onAdClosed(); adListener?.onNextAction() }, 3000)
+            Handler(Looper.getMainLooper()).postDelayed({
+                adListener?.onAdClosed()
+                adListener?.onNextAction()
+            }, 1500)
             return
         }
+
         val activity = context as? Activity ?: run {
-            adListener?.onAdClosed(); adListener?.onNextAction(); return
+            adListener?.onNextAction()
+            return
         }
-        AdsConsentManager(activity).requestUMP { canRequest ->
-            if (canRequest) initAdmob(context, null)
-            Handler(Looper.getMainLooper()).postDelayed({
-                if (mInterstitialSplash != null) onShowSplash(activity, adListener) else isTimeDelay = true
-            }, timeDelay)
-            if (timeOut > 0) {
-                handlerTimeout = Handler(Looper.getMainLooper())
-                rdTimeout = Runnable {
-                    isTimeout = true
-                    if (mInterstitialSplash != null) onShowSplash(activity, adListener)
-                    else {
-                        adListener?.onAdClosed()
-                        adListener?.onNextAction()
-                        isShowLoadingSplash = false
-                    }
-                }
-                handlerTimeout?.postDelayed(rdTimeout!!, timeOut)
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (mInterstitialSplash != null) {
+                onShowSplash(activity, adListener)
+            } else {
+                isTimeDelay = true
             }
-            isShowLoadingSplash = true
-            loadInterAds(context, id, object : InterCallback() {
-                override fun onAdLoadSuccess(interstitialAd: InterstitialAd?) {
-                    if (isTimeout) return
-                    mInterstitialSplash = interstitialAd
-                    if (isTimeDelay && interstitialAd != null) onShowSplash(activity, adListener)
-                }
-                override fun onAdFailedToLoad(error: LoadAdError?) {
-                    if (isTimeout) return
-                    rdTimeout?.let { handlerTimeout?.removeCallbacks(it) }
-                    adListener?.onAdFailedToLoad(error)
+        }, timeDelay)
+
+        if (timeOut > 0) {
+            handlerTimeout = Handler(Looper.getMainLooper())
+            rdTimeout = Runnable {
+                isTimeout = true
+                if (mInterstitialSplash != null) {
+                    onShowSplash(activity, adListener)
+                } else {
+                    adListener?.onAdClosed()
                     adListener?.onNextAction()
+                    isShowLoadingSplash = false
                 }
-                override fun onAdClicked() {
-                    if (disableAdResumeWhenClickAds) AppOpenManager.getInstance().disableAdResumeByClickAction()
-                }
-            })
+            }
+            handlerTimeout?.postDelayed(rdTimeout!!, timeOut)
         }
+
+        isShowLoadingSplash = true
+
+        loadInterAds(context, id, object : InterCallback() {
+            override fun onAdLoadSuccess(interstitialAd: InterstitialAd?) {
+                if (isTimeout) return
+
+                mInterstitialSplash = interstitialAd
+
+                if (isTimeDelay && interstitialAd != null) {
+                    onShowSplash(activity, adListener)
+                }
+            }
+
+            override fun onAdFailedToLoad(error: LoadAdError?) {
+                if (isTimeout) return
+
+                rdTimeout?.let { handlerTimeout?.removeCallbacks(it) }
+
+                adListener?.onAdFailedToLoad(error)
+                adListener?.onNextAction()
+            }
+        })
     }
 
     fun loadSplashInterAds2(context: Context, id: String, timeDelay: Long, adListener: InterCallback?) {
