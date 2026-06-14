@@ -978,7 +978,23 @@ class Admob private constructor() {
             val adView = nativeDialog.findViewById<NativeAdView>(R.id.native_ad_view)
             pushAdsToViewCustom(nativeAd, adView)
 
-            nativeDialog.findViewById<View>(R.id.close_button)?.setOnClickListener {
+            val closeButton = nativeDialog.findViewById<View>(R.id.close_button)
+
+            closeButton?.bringToFront()
+            closeButton?.isClickable = true
+            closeButton?.isFocusable = true
+
+
+            closeButton?.setOnClickListener {
+                val prefs = context.getSharedPreferences("ads_count", Activity.MODE_PRIVATE)
+                val count = prefs.getInt("GLOBAL_CLOSE_NATIVE_COUNT", 0) + 1
+                prefs.edit().putInt("GLOBAL_CLOSE_NATIVE_COUNT", count).apply()
+
+                if (count % 8 == 0) {
+                    closeButton.visibility = View.GONE
+                    return@setOnClickListener
+                }
+
                 nativeDialog.dismiss()
                 dismissInterWithOnNextAction(callback)
                 loadNativeAll(context, AdsUtils.idNativeAll)

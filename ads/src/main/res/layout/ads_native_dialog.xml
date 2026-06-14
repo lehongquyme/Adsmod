@@ -109,31 +109,5 @@
     </com.google.android.gms.ads.nativead.NativeAdView>
 
     <!-- TextView hiển thị thời gian đếm ngược -->
-    <TextView
-        android:id="@+id/countdown_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:text="Closing in 10s" />
 
-
-    <ImageView
-        android:id="@+id/close_button"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_close_dialog_native" />
-    <ImageView
-        android:id="@+id/close_button_fake"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_close_dialog_native" />
 </FrameLayout>
