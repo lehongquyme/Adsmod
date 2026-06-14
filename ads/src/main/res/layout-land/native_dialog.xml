@@ -5,7 +5,7 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
-        android:id="@+id/native_ad_view"
+        android:id="@+id/ad_unit_content1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/native_bg_dialog_color"

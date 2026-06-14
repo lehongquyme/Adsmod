@@ -978,7 +978,7 @@ class Admob private constructor() {
             nativeDialog.window?.decorView?.post {
 
                 val adView =
-                    nativeDialog.findViewById<NativeAdView>(R.id.native_ad_view)
+                    nativeDialog.findViewById<NativeAdView>(R.id.ad_unit_content1)
 
                 pushAdsToViewCustom(nativeAd, adView)
             }
