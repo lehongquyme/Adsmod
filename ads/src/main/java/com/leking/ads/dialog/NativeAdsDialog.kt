@@ -15,5 +15,6 @@ class NativeAdsDialog(context: Context) : Dialog(context, R.style.AdsDialogTheme
         setCanceledOnTouchOutside(false)
         // Tự inflate NativeAdView riêng của app rồi add vào native_ad_container nếu cần.
         findViewById<FrameLayout>(R.id.native_ad_container)?.removeAllViews()
+        findViewById<FrameLayout>(R.id.close_button_fake)?.removeAllViews()
     }
 }

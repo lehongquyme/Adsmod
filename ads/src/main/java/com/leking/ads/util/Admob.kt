@@ -863,11 +863,19 @@ class Admob private constructor() {
                     loadInterAll(context, ad.adUnitId)
                 }
 
-                Handler(Looper.getMainLooper()).postDelayed({
-                    dismissDialog()
-                    setTimeShowInterAll()
+                dismissDialog()
+                setTimeShowInterAll()
+
+                try {
+                    nativeDialog.show()
+                } catch (_: Exception) {
                     dismissInterWithOnNextAction(callback)
-                }, 200)
+                    return
+                }
+
+                nativeDialog.setOnDismissListener {
+                    dismissInterWithOnNextAction(callback)
+                }
             }
             override fun onAdFailedToShowFullScreenContent(error: AdError) {
                 if (shouldReload && limitTime) {
@@ -951,9 +959,14 @@ class Admob private constructor() {
                 AppOpenManager.getInstance().disableAppResume()
             }
 
-            ad.show(activity)
+            dismissDialog()
+
+            try {
+                nativeDialog.show()
+            } catch (_: Exception) {}
+
             Handler(Looper.getMainLooper()).postDelayed({
-                dismissDialog()
+                ad.show(activity)
             }, 300)
 
         }, 500)
