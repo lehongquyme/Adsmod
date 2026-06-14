@@ -915,8 +915,18 @@ class Admob private constructor() {
             callback?.onAdClosed(); callback?.onNextAction(); return
         }
         Handler(Looper.getMainLooper()).postDelayed({
-            if (AppOpenManager.getInstance().isInitialized()) AppOpenManager.getInstance().disableAppResume()
-            checkNativeAll(ad, callback, nativeDialog)
+            if (activity.isFinishing || activity.isDestroyed) {
+                dismissDialog()
+                callback?.onAdClosed()
+                callback?.onNextAction()
+                return@postDelayed
+            }
+
+            if (AppOpenManager.getInstance().isInitialized()) {
+                AppOpenManager.getInstance().disableAppResume()
+            }
+
+            dismissDialog()
             ad.show(activity)
         }, 800)
     }
@@ -1047,12 +1057,7 @@ class Admob private constructor() {
 
                 pushAdsToViewCustom(nativeAd, adView)
             }
-
-            override fun onAdFailedToLoad() {
-                frameLayout.visibility = View.VISIBLE
-
-                Log.e("Admob", "Native failed: $id")
-            }
+            override fun onAdFailedToLoad() { frameLayout.removeAllViews() }
         })
     }
 
