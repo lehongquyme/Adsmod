@@ -854,14 +854,20 @@ class Admob private constructor() {
         val nativeDialog = NativeAdsDialog(context)
         ad.fullScreenContentCallback = object : FullScreenContentCallback() {
             override fun onAdDismissedFullScreenContent() {
-                if (AppOpenManager.getInstance().isInitialized()) AppOpenManager.getInstance().enableAppResume()
+                if (AppOpenManager.getInstance().isInitialized()) {
+                    AppOpenManager.getInstance().enableAppResume()
+                }
+
                 if (shouldReload && limitTime) {
                     AdsUtils.interAllReady = false
                     loadInterAll(context, ad.adUnitId)
                 }
-                dismissDialog()
-                setTimeShowInterAll()
-                dismissInterWithOnNextAction(callback)
+
+                Handler(Looper.getMainLooper()).postDelayed({
+                    dismissDialog()
+                    setTimeShowInterAll()
+                    dismissInterWithOnNextAction(callback)
+                }, 200)
             }
             override fun onAdFailedToShowFullScreenContent(error: AdError) {
                 if (shouldReload && limitTime) {
@@ -900,20 +906,39 @@ class Admob private constructor() {
         showInterstitialAdNotLimit(context, ad, callback, nativeDialog)
     }
 
-    private fun showInterstitialAdNotLimit(context: Context, ad: InterstitialAd, callback: InterCallback?, nativeDialog: NativeAdsDialog) {
+    private fun showInterstitialAdNotLimit(
+        context: Context,
+        ad: InterstitialAd,
+        callback: InterCallback?,
+        nativeDialog: NativeAdsDialog
+    ) {
         if (!isShowAllAds || !isNetworkConnected()) {
-            callback?.onAdClosed(); callback?.onNextAction(); return
+            callback?.onAdClosed()
+            callback?.onNextAction()
+            return
         }
-        val activity = context as? Activity ?: run { callback?.onAdClosed(); callback?.onNextAction(); return }
+
+        val activity = context as? Activity ?: run {
+            callback?.onAdClosed()
+            callback?.onNextAction()
+            return
+        }
+
         if (!ProcessLifecycleOwner.get().lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
-            callback?.onAdClosed(); callback?.onNextAction(); return
+            callback?.onAdClosed()
+            callback?.onNextAction()
+            return
         }
+
         runCatching {
             dismissDialog()
             dialog = LoadingAdsDialog(context).also { it.show() }
         }.onFailure {
-            callback?.onAdClosed(); callback?.onNextAction(); return
+            callback?.onAdClosed()
+            callback?.onNextAction()
+            return
         }
+
         Handler(Looper.getMainLooper()).postDelayed({
             if (activity.isFinishing || activity.isDestroyed) {
                 dismissDialog()
@@ -926,9 +951,12 @@ class Admob private constructor() {
                 AppOpenManager.getInstance().disableAppResume()
             }
 
-            dismissDialog()
             ad.show(activity)
-        }, 800)
+            Handler(Looper.getMainLooper()).postDelayed({
+                dismissDialog()
+            }, 300)
+
+        }, 500)
     }
 
     private fun checkNativeAll(ad: InterstitialAd, callback: InterCallback?, nativeDialog: NativeAdsDialog) {
