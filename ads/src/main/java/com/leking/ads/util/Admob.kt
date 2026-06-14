@@ -866,9 +866,11 @@ class Admob private constructor() {
                 dismissDialog()
                 setTimeShowInterAll()
 
-                if (!nativeDialog.isShowing) {
-                    dismissInterWithOnNextAction(callback)
+                if (nativeDialog.isShowing) {
+                    return
                 }
+
+                dismissInterWithOnNextAction(callback)
             }
             override fun onAdFailedToShowFullScreenContent(error: AdError) {
                 if (shouldReload && limitTime) {
@@ -952,10 +954,12 @@ class Admob private constructor() {
                 AppOpenManager.getInstance().disableAppResume()
             }
             dismissDialog()
-            checkNativeAll(context, ad, callback, nativeDialog)
+
+            val hasNativeDialog = checkNativeAll(context, ad, callback, nativeDialog)
+
             Handler(Looper.getMainLooper()).postDelayed({
                 ad.show(activity)
-            }, 300)
+            }, if (hasNativeDialog) 500 else 100)
 
         }, 500)
     }
@@ -965,23 +969,24 @@ class Admob private constructor() {
         ad: InterstitialAd,
         callback: InterCallback?,
         nativeDialog: NativeAdsDialog
-    ) {
-        if (AdsUtils.idNativeAll.isBlank() || AdsUtils.nativeDialogAd == null) return
+    ): Boolean {
+        if (AdsUtils.idNativeAll.isBlank()) return false
+        if (AdsUtils.nativeDialogAd == null) return false
 
-        if (ad.responseInfo.mediationAdapterClassName?.contains("admob", true) == true) {
-            runCatching {
-                nativeDialog.show()
+        return runCatching {
+            nativeDialog.show()
 
-                val adView = nativeDialog.findViewById<NativeAdView>(R.id.native_ad_view)
-                pushAdsToViewCustom(AdsUtils.nativeDialogAd, adView)
+            val adView = nativeDialog.findViewById<NativeAdView>(R.id.native_ad_view)
+            pushAdsToViewCustom(AdsUtils.nativeDialogAd, adView)
 
-                nativeDialog.findViewById<View>(R.id.close_button)?.setOnClickListener {
-                    nativeDialog.dismiss()
-                    dismissInterWithOnNextAction(callback)
-                    loadNativeAll(context, AdsUtils.idNativeAll)
-                }
+            nativeDialog.findViewById<View>(R.id.close_button)?.setOnClickListener {
+                nativeDialog.dismiss()
+                dismissInterWithOnNextAction(callback)
+                loadNativeAll(context, AdsUtils.idNativeAll)
             }
-        }
+
+            true
+        }.getOrDefault(false)
     }
 
     private fun showInterWithOnNextAction(callback: InterCallback?) {
