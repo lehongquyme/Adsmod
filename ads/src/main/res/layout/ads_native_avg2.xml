@@ -7,7 +7,7 @@
     android:background="@drawable/bg_native">
 
     <RelativeLayout
-        android:id="@+id/ad_unit_content"
+        android:id="@+id/native_ad_view"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
