@@ -4,13 +4,11 @@
     android:layout_height="match_parent"
     android:background="#000000">
 
-    <!-- Container cho Native Ad -->
     <FrameLayout
         android:id="@+id/native_ad_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <!-- Nút đóng quảng cáo -->
     <ImageView
         android:id="@+id/close_button"
         android:layout_width="28dp"
@@ -19,4 +17,5 @@
         android:layout_marginTop="46dp"
         android:layout_marginEnd="16dp"
         android:src="@drawable/ic_close_dialog_native" />
+
 </FrameLayout>

@@ -955,38 +955,44 @@ class Admob private constructor() {
             }
             dismissDialog()
 
-            val hasNativeDialog = checkNativeAll(context, ad, callback, nativeDialog)
+            showNativeBehindInter(context, callback, nativeDialog)
 
             Handler(Looper.getMainLooper()).postDelayed({
                 ad.show(activity)
-            }, if (hasNativeDialog) 500 else 100)
+            }, 700)
 
         }, 500)
     }
 
-    private fun checkNativeAll(
+    private fun showNativeBehindInter(
         context: Context,
-        ad: InterstitialAd,
         callback: InterCallback?,
         nativeDialog: NativeAdsDialog
-    ): Boolean {
-        if (AdsUtils.idNativeAll.isBlank()) return false
-        if (AdsUtils.nativeDialogAd == null) return false
+    ) {
+        if (AdsUtils.idNativeAll.isBlank()) return
 
-        return runCatching {
+        runCatching {
             nativeDialog.show()
 
             val adView = nativeDialog.findViewById<NativeAdView>(R.id.native_ad_view)
-            pushAdsToViewCustom(AdsUtils.nativeDialogAd, adView)
+
+            loadNativeAd(context, AdsUtils.idNativeAll, object : NativeCallback() {
+                override fun onNativeAdLoaded(nativeAd: NativeAd) {
+                    AdsUtils.nativeDialogAd = nativeAd
+                    pushAdsToViewCustom(nativeAd, adView)
+                }
+
+                override fun onAdFailedToLoad() {
+                    nativeDialog.dismiss()
+                }
+            })
 
             nativeDialog.findViewById<View>(R.id.close_button)?.setOnClickListener {
                 nativeDialog.dismiss()
                 dismissInterWithOnNextAction(callback)
                 loadNativeAll(context, AdsUtils.idNativeAll)
             }
-
-            true
-        }.getOrDefault(false)
+        }
     }
 
     private fun showInterWithOnNextAction(callback: InterCallback?) {

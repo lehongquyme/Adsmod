@@ -1,139 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.google.android.gms.ads.nativead.NativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/native_ad_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_native">
 
-    <!-- Native Ad View -->
-    <com.google.android.gms.ads.nativead.NativeAdView
-        android:layout_marginTop="50dp"
-        android:id="@+id/native_ad_view"
+    <RelativeLayout
+        android:id="@+id/ad_unit_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/ad_unit_content"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerInParent="true"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_centerInParent="true">
+                android:layout_height="wrap_content"
+                android:background="#EDEDED"
+                android:orientation="horizontal"
+                android:paddingStart="25dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="10dp">
 
-                <LinearLayout
-                    android:background="#EDEDED"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingStart="25dp"
-                    android:paddingTop="10dp"
-                    android:paddingEnd="10dp"
-                    android:paddingBottom="10dp">
-
-                    <ImageView
-                        android:id="@+id/ad_app_icon"
-                        android:layout_width="55dp"
-                        android:layout_height="55dp"
-                        android:adjustViewBounds="true"
-                        android:src="@color/color_app" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/ad_headline"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="2"
-                            android:text=""
-                            android:textColor="@color/native_text_title"
-                            android:textSize="18sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/ad_advertiser"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:gravity="bottom"
-                            android:lines="1"
-                            android:textColor="@color/native_text_body"
-                            android:textSize="18sp" />
-                    </LinearLayout>
-                </LinearLayout>
+                <ImageView
+                    android:id="@+id/ad_app_icon"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:adjustViewBounds="true"
+                    android:src="@color/color_app" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_marginStart="5dp"
+                    android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/ad_body"
+                        android:id="@+id/ad_headline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="@color/native_text_title"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/ad_advertiser"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:lines="1"
                         android:textColor="@color/native_text_body"
-                        android:textSize="15sp" />
+                        android:textSize="18sp" />
                 </LinearLayout>
-
-                <com.google.android.gms.ads.nativead.MediaView
-                    android:id="@+id/ad_media"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/_5sdp" />
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/ad_call_to_action"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginVertical="50dp"
-                    android:background="@drawable/bg_btn_ads_native"
-                    android:gravity="center"
-                    android:text="Install"
-                    android:textColor="@color/native_btn_text_color"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
             </LinearLayout>
-        </RelativeLayout>
-    </com.google.android.gms.ads.nativead.NativeAdView>
 
-    <!-- TextView hiển thị thời gian đếm ngược -->
-    <TextView
-        android:id="@+id/countdown_timer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|center"
-        android:textColor="#000000"
-        android:textSize="16sp"
-        android:text="Closing in 10s" />
+            <TextView
+                android:id="@+id/ad_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:textColor="@color/native_text_body"
+                android:textSize="15sp" />
 
+            <com.google.android.gms.ads.nativead.MediaView
+                android:id="@+id/ad_media"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_weight="1" />
 
-    <ImageView
-        android:id="@+id/close_button"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_close_dialog_native" />
-    <ImageView
-        android:id="@+id/close_button_fake"
-        android:layout_width="28dp"
-        android:layout_height="28dp"
-        android:layout_gravity="top|end"
-        android:layout_marginTop="10dp"
-        android:visibility="gone"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_close_dialog_native" />
-</FrameLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/ad_call_to_action"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginVertical="50dp"
+                android:background="@drawable/bg_btn_ads_native"
+                android:gravity="center"
+                android:text="Install"
+                android:textColor="@color/native_btn_text_color"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</com.google.android.gms.ads.nativead.NativeAdView>
