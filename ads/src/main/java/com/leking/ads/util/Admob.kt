@@ -979,7 +979,8 @@ class Admob private constructor() {
 
                 val adView =
                     nativeDialog.findViewById<NativeAdView>(R.id.native_ad_view)
-
+                Log.e("ADS_DEBUG", "adView=$adView")
+                Log.e("ADS_DEBUG", "nativeAd=$nativeAd")
                 pushAdsToViewCustom(nativeAd, adView)
             }
 
