@@ -9,6 +9,7 @@
     <com.google.android.gms.ads.nativead.NativeAdView
         android:layout_marginTop="50dp"
         android:id="@+id/native_ad_view"
+        android:background="@color/native_bg_dialog_color"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
