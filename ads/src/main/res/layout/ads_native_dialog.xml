@@ -118,13 +118,22 @@
         android:textSize="16sp"
         android:text="Closing in 10s" />
 
-    <!-- Nút đóng quảng cáo -->
-    <Button
+
+    <ImageView
         android:id="@+id/close_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
         android:layout_gravity="top|end"
-        android:text="Close"
-        android:enabled="false"
-        android:visibility="visible" />
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_close_dialog_native" />
+    <ImageView
+        android:id="@+id/close_button_fake"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/ic_close_dialog_native" />
 </FrameLayout>

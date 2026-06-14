@@ -866,14 +866,7 @@ class Admob private constructor() {
                 dismissDialog()
                 setTimeShowInterAll()
 
-                try {
-                    nativeDialog.show()
-                } catch (_: Exception) {
-                    dismissInterWithOnNextAction(callback)
-                    return
-                }
-
-                nativeDialog.setOnDismissListener {
+                if (!nativeDialog.isShowing) {
                     dismissInterWithOnNextAction(callback)
                 }
             }
@@ -958,13 +951,8 @@ class Admob private constructor() {
             if (AppOpenManager.getInstance().isInitialized()) {
                 AppOpenManager.getInstance().disableAppResume()
             }
-
             dismissDialog()
-
-            try {
-                nativeDialog.show()
-            } catch (_: Exception) {}
-
+            checkNativeAll(context, ad, callback, nativeDialog)
             Handler(Looper.getMainLooper()).postDelayed({
                 ad.show(activity)
             }, 300)
@@ -972,18 +960,27 @@ class Admob private constructor() {
         }, 500)
     }
 
-    private fun checkNativeAll(ad: InterstitialAd, callback: InterCallback?, nativeDialog: NativeAdsDialog) {
-        if (AdsUtils.idNativeAll.isBlank()) {
-            if (openActivityAfterShowInterAds) showInterWithOnNextAction(callback)
-            return
-        }
-        if (ad.responseInfo?.mediationAdapterClassName?.contains("admob", true) == true && AdsUtils.nativeDialogAd != null) {
-            handlerShowNativeAll.postDelayed({
-                dismissDialog()
-                runCatching { nativeDialog.show() }.onFailure { if (openActivityAfterShowInterAds) showInterWithOnNextAction(callback) }
-            }, 1500)
-        } else if (openActivityAfterShowInterAds) {
-            showInterWithOnNextAction(callback)
+    private fun checkNativeAll(
+        context: Context,
+        ad: InterstitialAd,
+        callback: InterCallback?,
+        nativeDialog: NativeAdsDialog
+    ) {
+        if (AdsUtils.idNativeAll.isBlank() || AdsUtils.nativeDialogAd == null) return
+
+        if (ad.responseInfo.mediationAdapterClassName?.contains("admob", true) == true) {
+            runCatching {
+                nativeDialog.show()
+
+                val adView = nativeDialog.findViewById<NativeAdView>(R.id.native_ad_view)
+                pushAdsToViewCustom(AdsUtils.nativeDialogAd, adView)
+
+                nativeDialog.findViewById<View>(R.id.close_button)?.setOnClickListener {
+                    nativeDialog.dismiss()
+                    dismissInterWithOnNextAction(callback)
+                    loadNativeAll(context, AdsUtils.idNativeAll)
+                }
+            }
         }
     }
 
