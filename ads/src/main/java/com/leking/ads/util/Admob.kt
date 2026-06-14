@@ -64,7 +64,7 @@ class Admob private constructor() {
 
     companion object {
         private const val TAG = "Admob"
-
+        private var nativeCloseCount = 0
         const val BANNER_INLINE_SMALL_STYLE = "BANNER_INLINE_SMALL_STYLE"
         const val BANNER_INLINE_LARGE_STYLE = "BANNER_INLINE_LARGE_STYLE"
         private const val MAX_SMALL_INLINE_BANNER_HEIGHT = 50
@@ -835,16 +835,27 @@ class Admob private constructor() {
         showInterAds(context, ad, callback, false, false)
     }
 
-    fun showInterAll(context: Context, callback: InterCallback?) {
-        showInterAds(context, AdsUtils.interstitialAd, callback, true, true)
+    fun showInterAll(
+        context: Context,
+        callback: InterCallback?,
+        closeCount: Int = 0
+    ) {
+        showInterAds(context, AdsUtils.interstitialAd, callback, true, true, closeCount)
     }
 
-    fun showInterAds(context: Context, ad: InterstitialAd?, callback: InterCallback?, shouldReload: Boolean, limitTime: Boolean) {
+    fun showInterAds(
+        context: Context,
+        ad: InterstitialAd?,
+        callback: InterCallback?,
+        shouldReload: Boolean,
+        limitTime: Boolean,
+        closeCount: Int = 0
+    ){
         currentClicked = numShowAds
-        showInterAdByTimes(context, ad, callback, shouldReload, limitTime)
+        showInterAdByTimes(context, ad, callback, shouldReload, limitTime, closeCount)
     }
 
-    private fun showInterAdByTimes(context: Context, ad: InterstitialAd?, callback: InterCallback?, shouldReload: Boolean, limitTime: Boolean) {
+    private fun showInterAdByTimes(context: Context, ad: InterstitialAd?, callback: InterCallback?, shouldReload: Boolean, limitTime: Boolean, closeCount: Int = 0) {
         Helper.setupAdmobData(context)
         if (!isShowAllAds || isDeviceTest || ad == null || !checkTimeShowInterNotUpdate(timeLimitShowAds)) {
             callback?.onAdClosed()
@@ -899,21 +910,26 @@ class Admob private constructor() {
             callback?.onNextAction()
             return
         }
-        if (limitTime) showInterstitialAd(context, ad, callback, nativeDialog) else showInterstitialAdNotLimit(context, ad, callback, nativeDialog)
+        if (limitTime) {
+            showInterstitialAd(context, ad, callback, nativeDialog, closeCount)
+        } else {
+            showInterstitialAdNotLimit(context, ad, callback, nativeDialog, closeCount)
+        }
     }
 
-    private fun showInterstitialAd(context: Context, ad: InterstitialAd, callback: InterCallback?, nativeDialog: NativeAdsDialog) {
+    private fun showInterstitialAd(context: Context, ad: InterstitialAd, callback: InterCallback?, nativeDialog: NativeAdsDialog,closeCount: Int) {
         if (!checkTimeShowInter(timeLimitShowAds) || !isShowAllAds || !isNetworkConnected()) {
             callback?.onAdClosed(); callback?.onNextAction(); return
         }
-        showInterstitialAdNotLimit(context, ad, callback, nativeDialog)
+        showInterstitialAdNotLimit(context, ad, callback, nativeDialog,closeCount)
     }
 
     private fun showInterstitialAdNotLimit(
         context: Context,
         ad: InterstitialAd,
         callback: InterCallback?,
-        nativeDialog: NativeAdsDialog
+        nativeDialog: NativeAdsDialog,
+        closeCount: Int
     ) {
         if (!isShowAllAds || !isNetworkConnected()) {
             callback?.onAdClosed()
@@ -955,7 +971,7 @@ class Admob private constructor() {
             }
             dismissDialog()
 
-            val hasNativeDialog = checkNativeAll(context, callback, nativeDialog)
+            val hasNativeDialog = checkNativeAll(context, callback, nativeDialog,closeCount)
 
             Handler(Looper.getMainLooper()).postDelayed({
                 ad.show(activity)
@@ -967,7 +983,8 @@ class Admob private constructor() {
     private fun checkNativeAll(
         context: Context,
         callback: InterCallback?,
-        nativeDialog: NativeAdsDialog
+        nativeDialog: NativeAdsDialog,
+        closeCount: Int
     ): Boolean {
         val nativeAd = AdsUtils.nativeDialogAd ?: return false
         if (AdsUtils.idNativeAll.isBlank()) return false
@@ -986,20 +1003,11 @@ class Admob private constructor() {
 
             val closeButton = nativeDialog.findViewById<View>(R.id.close_button)
 
-            closeButton?.bringToFront()
-            closeButton?.isClickable = true
-            closeButton?.isFocusable = true
-
+            closeButton?.visibility =
+                if (closeCount % 8 == 0) View.GONE else View.VISIBLE
 
             closeButton?.setOnClickListener {
-                val prefs = context.getSharedPreferences("ads_count", Activity.MODE_PRIVATE)
-                val count = prefs.getInt("GLOBAL_CLOSE_NATIVE_COUNT", 0) + 1
-                prefs.edit().putInt("GLOBAL_CLOSE_NATIVE_COUNT", count).apply()
-
-                if (count % 8 == 0) {
-                    closeButton.visibility = View.GONE
-                    return@setOnClickListener
-                }
+                nativeCloseCount++
 
                 nativeDialog.dismiss()
                 dismissInterWithOnNextAction(callback)
