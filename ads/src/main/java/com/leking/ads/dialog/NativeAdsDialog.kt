@@ -19,7 +19,7 @@ class NativeAdsDialog(context: Context) : Dialog(context, R.style.AdsDialogTheme
         container.removeAllViews()
 
         val nativeView = LayoutInflater.from(context)
-            .inflate(R.layout.ads_native_dialog, container, false)
+            .inflate(R.layout.native_dialog, container, false)
 
         container.addView(nativeView)
     }
