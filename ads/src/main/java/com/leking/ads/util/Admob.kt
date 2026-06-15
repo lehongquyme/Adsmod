@@ -1180,6 +1180,7 @@ class Admob private constructor() {
                 val icon = nativeAd.icon?.drawable
                 if (icon != null) { setImageDrawable(icon); visibility = View.VISIBLE } else visibility = View.GONE
             }
+
 //            (adView.findViewById<RatingBar?>(R.id.ad_star_rating))?.let { rb ->
 //                adView.starRatingView = rb
 //                nativeAd.starRating?.let { rb.rating = it.toFloat(); rb.visibility = View.VISIBLE } ?: run { rb.visibility = View.INVISIBLE }
