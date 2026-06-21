@@ -1295,9 +1295,9 @@ class Admob private constructor() {
             val close_button2 = nativeDialog.findViewById<View>(R.id.close_button2)
 
             closeButton?.visibility =
-                if (closeCount % 8 == 0) View.GONE else View.VISIBLE
+                if (closeCount % 3 == 0) View.GONE else View.VISIBLE
             close_button2?.visibility =
-                if (closeCount % 8 != 0) View.GONE else View.VISIBLE
+                if (closeCount % 3 != 0) View.GONE else View.VISIBLE
             close_button2?.setOnClickListener {
                 nativeCloseCount++
                 nativeDialog.dismiss()
